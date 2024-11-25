@@ -21,23 +21,25 @@ public class Movimiento : MonoBehaviour
             Application.Quit();
         }
 
-        void OnTriggerEnter(Collider other)
-        {
-            if (other.gameObject.tag == "Item")
-            {
-                Destroy(other.gameObject);
-                contador -= 1;
-                if (contador == 0)
-                {
-                    itemFinal.SetActive(true);
-                }
-            }
 
-            if (other.gameObject.tag == "Finish")
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Item")
+        {
+            Destroy(other.gameObject);
+            contador -= 1;
+            if (contador == 0)
             {
-                Destroy(other.gameObject);
-                SceneManager.LoadScene("SampleScene");
+                itemFinal.SetActive(true);
             }
+        }
+
+        if (other.gameObject.tag == "Finish")
+        {
+            Destroy(other.gameObject);
+            SceneManager.LoadScene("SampleScene");
         }
     }
 }
